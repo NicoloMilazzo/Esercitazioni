@@ -1,0 +1,15 @@
+JAVASCRIPT
+1. == confronta il valore mentre "===" confronta il valore ed il tipo ed entrambi devono essere soddisfatti per restituire true
+2.rappresenta l'oggetto a cui appartiene il metodo invocato
+3.le arrow function consentono di scrivere una sintassi più breve
+4.
+5.si usa principalmente sugli array, e serve per copiare un arrat, usare funzioni matematiche
+aggiunta di un elemento all'array, concatenare o combinare array
+6.
+7.il metodo call() permette di invocare una funzione impostando il èrimo parametro come oggetto di riferimento
+il metodo apply() è simile al metodo call(), il primo è un oggetto da assiocare a this mentre il secondo è un array dei valori da passare alla funzione da invocare
+il metodo bind() consente invece di creare una funzione con l'oggetto this preimpostato
+8.
+9.0 == false restituisce true perchè in javascript 0 rappresenta un valore falso
+0 === false perchè il triplo uguale confronta anche il tipo e non solo il valore
+10.
