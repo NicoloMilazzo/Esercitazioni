@@ -6,7 +6,7 @@
     <body>
         <form name="MyForm">
             <label for="nome">Nome</label><br>
-            <input type="text" pattern="[A-Za-z]+" placeholder="Inserisci il nome"><br>
+            <input type="text" name="nome" pattern="[A-Za-z]+" placeholder="Inserisci il nome"><br>
             <label for="cognome">Cognome</label><br>
             <input type="text" pattern="[A-Za-z]+" placeholder="Inserisci il cognome"><br>
             <label for="paese">Paese</label><br>
@@ -20,11 +20,25 @@
             <button class="btn">Invio</button>
         </form>
         <script>
-            var controllo = document.forms.MyForm.username;
-            controllo.addEventListener("blur", function(e){
+
+            var controlloNome = document.forms.MyForm.nome;
+            controlloNome.addEventListener("blur", function(e){
                 var messaggio = "";
                 if(!e.target.validity.valid){
                     if(e.target.validity.patternMismatch){
+                        messaggio = messaggio + "nome non valido";
+                        e.target.setCustomValidity(messaggio);
+                    }
+                    
+                }
+            })
+
+
+            var controlloUser = document.forms.MyForm.username;
+            controlloUser.addEventListener("blur", function(e){
+                var messaggio = "";
+                if(!e.target.validity.valid){
+                    if(!e.target.validity.patternMismatch){
                         messaggio = messaggio + "username non valido";
                         e.target.setCustomValidity(messaggio);
                     }
@@ -32,6 +46,7 @@
                 }
             })
             
+           
         </script>
     </body>    
 </html>    

@@ -6,10 +6,19 @@ JAVASCRIPT
 5.si usa principalmente sugli array, e serve per copiare un arrat, usare funzioni matematiche
 aggiunta di un elemento all'array, concatenare o combinare array
 6.
-7.il metodo call() permette di invocare una funzione impostando il èrimo parametro come oggetto di riferimento
+7.il metodo call() permette di invocare una funzione impostando il primo parametro come oggetto di riferimento
 il metodo apply() è simile al metodo call(), il primo è un oggetto da assiocare a this mentre il secondo è un array dei valori da passare alla funzione da invocare
 il metodo bind() consente invece di creare una funzione con l'oggetto this preimpostato
 8.
 9.0 == false restituisce true perchè in javascript 0 rappresenta un valore falso
 0 === false perchè il triplo uguale confronta anche il tipo e non solo il valore
-10.
+10.let arr = [1,2,3,4,5,6,7,8,9,10];
+for(var i = 0; i<10; i++){
+arr[i] = arr[i] +1;
+}
+arr.filter(x => x%2!==0)
+11.
+12.
+13.- è corretto, sarà stampato in console inizialmente 14, poi "10,5"
+-
+-è corretto e verrà stampato "1011"

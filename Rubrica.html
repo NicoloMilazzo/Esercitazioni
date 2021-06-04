@@ -21,12 +21,12 @@
                 <td>rossi</td>
                 <td>2354718453</td>
                 <td>Via nazionale 24</td>
-                <td> <button>modifica</button><button>rimuovi</button></td>
+                <td> <button id="btn">modifica</button><button>rimuovi</button></td>
             </tr>
         </table>
         <form>
             <label for="fname">Nome</label>
-            <input type="text" id="fname" name="fname" placeholder="Inserisci il tuo nome"><br>
+            <input type="text" id="fname" name="fname" placeholder="Inserisci il tuo nome" value="hello"><br>
             <label for="lname">Cognome</label>
             <input type="text" id="lname" name="lname" placeholder="Inserisci il tuo cognome"><br>
             <label for="tel">Telefono</label>
@@ -36,5 +36,20 @@
             
         </form>
         <button id="agg">Aggiungi</button>
+        <div id="mainDiv">
+            <h1>Titolo</h1>
+            <p>Un paragrafo</p>
+            <p>Un altro paragrafo</p>
+        </div>
+        <script>
+        document.getElementById("fname").addEventListener('focus', function(event) {
+            document.getElementById("fname").value= "ciao";
+        });
+        document.getElementById("btn").addEventListener('click', function(event){
+            document.getElementById("agg").style.visibility="hidden";
+        });
+        document.getElementsByTagName("div").style.visibility="hidden";
+        
+        </script>
     </body>
 </html>    
