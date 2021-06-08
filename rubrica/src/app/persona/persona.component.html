@@ -1,0 +1,93 @@
+
+<div class="container-fluid">
+    <div class="row align-items-start">
+        <div class="col-sm-12 col-md-4">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Cerca</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+         </div>
+    </div>               
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Cognome</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Indirizzo</th>
+                <th scope="col">Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+            <li *ngFor= 'let utente of persone'>
+                <tr>
+                    <td>{{utente.id}}</td>
+                    <td>{{utente.nome}}</td>
+                    <td>{{utente.cognome}}</td>
+                    <td>{{utente.telefono}}</td>
+                    <td>{{utente.indirizzo}}</td>
+                    <td> 
+                        <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                modifica
+                        </button>                                                
+                        <button (click)="delete(utente.id)">elimina</button>
+                    </td>
+
+                </tr>
+            </li>
+        </tbody>    
+    </table>       
+    <form> 
+        <h3>Aggiungi contatto</h3>
+            <div class="row align-items-start">
+                <div class="col-sm-12 col-md-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Cognome</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Telefono</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" pattern="[0-9]{10}">
+                    </div>
+                </div>
+            </div>                                      
+            <div class="row align-items-start">
+                <div class="col-sm-12 col-md-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Indirizzo</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+            </div>     
+                <button class="btn btn-success" >Aggiungi</button>
+    </form>
+</div>
+        
+        
+          
+          
+          
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Dettagli contatto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                  
+            </div>
+        </div>
+    </div>
+</div>
+
