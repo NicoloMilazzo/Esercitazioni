@@ -11,6 +11,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th scope="col">ID</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Cognome</th>
                 <th scope="col">Telefono</th>
@@ -19,22 +20,24 @@
             </tr>
         </thead>
         <tbody>
-            <li *ngFor= 'let utente of persone'>
-                <tr>
+            <tr *ngFor= 'let utente of persone'>
+                
                     <td>{{utente.id}}</td>
                     <td>{{utente.nome}}</td>
                     <td>{{utente.cognome}}</td>
                     <td>{{utente.telefono}}</td>
                     <td>{{utente.indirizzo}}</td>
                     <td> 
-                        <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a routerLink= '/informazioni'>
+                        <button type="button"  data-bs-toggle="modal" >
                                 modifica
-                        </button>                                                
+                        </button>   
+                    </a>                                             
                         <button (click)="delete(utente.id)">elimina</button>
                     </td>
 
-                </tr>
-            </li>
+                
+            </tr>
         </tbody>    
     </table>       
     <form> 
