@@ -27,4 +27,17 @@ export class ContattiService {
     return of(PERSONE);
   }
 
+  getPersona(id: number): Observable<Persona>{
+    const pers = PERSONE.find(element => element.id === id)!;
+
+    return of(pers);
+  }
+
+  getemail(id: number): Observable<Persona>{
+    const pers= PERSONE.find(element=>element.id === id)!;
+
+    return of(pers)
+
+  }
+
 }

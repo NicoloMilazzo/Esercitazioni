@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ContattiService } from '../contatti.service';
 import { Persona } from '../persona';
 
@@ -10,13 +11,22 @@ import { Persona } from '../persona';
 export class PersonaComponent implements OnInit {
 
   persone: Persona[] = [];
+  persona: Persona | undefined;
 
-  constructor(private contattiservice: ContattiService) { }
+  constructor(private contattiservice: ContattiService, private router: Router) { }
 
 
   delete(id: number){
    this.contattiservice.delete(id);
     
+  }
+
+  modifica(id: number){
+    this.router.navigateByUrl('/informazioni/'+id);
+  }
+
+  getemail(id: number){
+    this.contattiservice.getemail(id).subscribe(pers => this.persona = pers);
   }
 
   ngOnInit(): void {

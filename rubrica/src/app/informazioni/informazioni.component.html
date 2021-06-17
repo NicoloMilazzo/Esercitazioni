@@ -1,5 +1,16 @@
-<p>informazioni works!</p>
+<div>
+    <label>id:</label>
+    {{persona?.id}}<br>
+    <label>nome:</label>
+    {{persona?.nome}}<br>
+    <label>cognome:</label>
+    {{persona?.cognome}}<br>
+    <label>telefono:</label>
+    {{persona?.telefono}}<br>
+    <label>indirizzo:</label>
+    {{persona?.indirizzo}}<br>
+</div>
 
-<a routerLink="/persona">
-    <button>go back</button>
-</a>
+
+    <button (click)="goback()">go back</button>
+

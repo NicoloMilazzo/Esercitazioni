@@ -4,13 +4,15 @@ export class Persona{
     private _cognome: string;
     private _telefono: string;
     private _indirizzo: string;
+    private _email: string;
 
-constructor(id: number, nome: string, cognome: string, telefono: string, indirizzo: string){
+constructor(id: number, nome: string, cognome: string, telefono: string, indirizzo: string, email: string){
     this._id = id;
     this._nome= nome;
     this._cognome= cognome;
     this._telefono= telefono;
     this._indirizzo= indirizzo;
+    this._email= email;
 }
 public get id():number{
     return this._id;
@@ -50,6 +52,14 @@ public get indirizzo(): string{
 
 public set indirizzo(indirizzo: string){
     this._indirizzo= indirizzo;
+}
+
+public get email():string{
+    return this._email;
+}
+ 
+public set email(email: string){
+    this._email= email;
 }
 
 }
