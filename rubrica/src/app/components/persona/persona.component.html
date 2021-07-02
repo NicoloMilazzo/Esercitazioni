@@ -18,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor= 'let utente of persone'>
+            <tr *ngFor="let utente of persone">
                 
                     <td>{{utente.id}}</td>
                     <td>{{utente.nome}}</td>
@@ -28,11 +28,15 @@
                     <td> 
                     
                         <button type="button" (click)="modifica(utente.id)">
-                                modifica
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
                         </button>   
                                                                 
-                        <button (click)="delete(utente.id)">elimina</button>
-                        <button type="button" (click)="getemail(utente.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">e-mail</button>
+                        <button (click)="delete(utente.id)">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" (click)="getemail(utente)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        </button>
                         
                     </td>
 
@@ -47,7 +51,7 @@
                 <div class="col-sm-12 col-md-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="persona.nome" required>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-4">
@@ -81,7 +85,11 @@
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">E-mail</h5>
               
-             {{persona?.email}}
+             
+            </div>
+
+            <div class="modal-body">
+                {{persona?.email}}
             </div>
             
             <div class="modal-footer">

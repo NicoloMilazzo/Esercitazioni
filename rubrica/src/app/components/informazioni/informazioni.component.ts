@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ContattiService } from '../contatti.service';
-import { Persona } from '../persona';
+import { ContattiService } from '../../contatti.service';
+import { Persona } from '../../model/persona';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
