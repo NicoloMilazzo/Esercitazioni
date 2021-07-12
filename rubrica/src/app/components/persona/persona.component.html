@@ -45,25 +45,28 @@
             </tr>
         </tbody>    
     </table>       
-    <form> 
+    <form [formGroup]="form" (ngSubmit)="onSubmit()"> 
         <h3>Aggiungi contatto</h3>
             <div class="row align-items-start">
                 <div class="col-sm-12 col-md-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="persona.nome" required>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="nome">
+                       <div *ngIf="!this.form.get('nome').valid">
+                        errore
+                       </div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Cognome</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="cognome">
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Telefono</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" pattern="[0-9]{10}">
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" pattern="[0-9]{10}" formControlName="telefono">
                     </div>
                 </div>
             </div>                                      
@@ -71,11 +74,18 @@
                 <div class="col-sm-12 col-md-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Indirizzo</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="indirizzo">
                     </div>
                 </div>
-            </div>     
-                <button class="btn btn-success" >Aggiungi</button>
+                <div class="col-sm-12 col-md-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">E-mail</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="email">
+                    </div>
+                </div>
+            </div>   
+              
+                <button class="btn btn-success" type="submit">Aggiungi</button>
     </form>
         
     

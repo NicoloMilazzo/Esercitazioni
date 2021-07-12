@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PersonaComponent } from './components/persona/persona.component';
 import { InformazioniComponent } from './components/informazioni/informazioni.component';
-import {FormsModule} from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -18,7 +19,7 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
