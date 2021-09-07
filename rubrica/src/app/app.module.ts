@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { PersonaComponent } from './components/persona/persona.component';
 import { InformazioniComponent } from './components/informazioni/informazioni.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EsempioComponent } from './components/esempio/esempio.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './components/form/form.component';
 
 
 
@@ -14,12 +18,15 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     PersonaComponent,
-    InformazioniComponent
+    InformazioniComponent,
+    EsempioComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

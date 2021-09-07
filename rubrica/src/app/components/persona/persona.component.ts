@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ContattiService } from '../../service/contatti.service';
 import { Persona } from '../../model/persona';
+import { EsempioComponent } from '../esempio/esempio.component';
+import { customValidators } from 'src/app/validators/customValidators';
 
 @Component({
   selector: 'app-persona',
@@ -13,6 +15,8 @@ export class PersonaComponent implements OnInit {
   persone: Persona[] = [];
   persona: Persona;
   form: FormGroup;
+  
+  @ViewChild("child") child: EsempioComponent;
 
   constructor(
     private contattiservice: ContattiService,
@@ -25,7 +29,7 @@ export class PersonaComponent implements OnInit {
       this.persone = dati;
     });
     this.form = this.fb.group({
-      nome: [undefined, Validators.required],
+      nome: [undefined, [Validators.required, customValidators.nameValidator]],
       cognome: [undefined, Validators.required],
       telefono: [undefined, Validators.required],
       indirizzo: [undefined, Validators.required],
@@ -46,9 +50,10 @@ export class PersonaComponent implements OnInit {
     this.persona = persona;
   }
 
-  onSubmit(){
-    let personaForm = this.form.getRawValue();
-    this.contattiservice.add(personaForm);
+ 
+
+  prova(){
+    this.child.prova();
   }
 
 }

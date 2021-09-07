@@ -1,31 +1,36 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { PERSONE } from '../mock-contatti';
 import { Persona } from '../model/persona';
+import { map } from 'rxjs/operators'
+import { personaConverter } from '../converter/personaConverter';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContattiService {
   cont = 3;
+  personaConverter = new personaConverter();
+  
 
-  add(persona: Persona): Observable<Persona[]> {
-    let personanew = new Persona(
-      this.cont++,
-      persona.nome,
-      persona.cognome,
-      persona.telefono,
-      persona.indirizzo,
-      persona.email
-    );
-    PERSONE.push(personanew);
+  add(persona: Persona): Observable<Persona[]> {  
+    PERSONE.push(persona);
     return of(PERSONE);
   }
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
   mostraPersone(): Observable<Persona[]> {
-    return of(PERSONE);
+    return this.httpClient.get<any>("http://localhost:3000/persone").pipe(map((rispostaBE:Array<any>) => {
+      let personList: Persona[]=[];
+      rispostaBE.forEach(element => {
+        personList.push(this.personaConverter.daDtoAModel(element))
+    });
+      console.log(personList);
+      return personList;
+
+    }))
   }
 
   delete(id: number): Observable<Persona[]> {
@@ -44,4 +49,10 @@ export class ContattiService {
 
     return of(pers);
   }
+
+  addHTTP(persona : Persona){
+    let personaDTO = this.personaConverter.daModelADto(persona);
+    return this.httpClient.post<any>("http://localhost:3000/persone", personaDTO);
+  }
+
 }

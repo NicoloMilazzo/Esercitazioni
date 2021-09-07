@@ -1,0 +1,5 @@
+{
+    "persone": [
+      { "id": 1, "name": "mario", "cognome": "rossi", "telefono": "467329845", "adress": "via roma", "email": "jdns@outlook.it" }
+    ]
+}

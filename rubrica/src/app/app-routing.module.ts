@@ -4,10 +4,12 @@ import { InformazioniComponent } from './components/informazioni/informazioni.co
 import { PersonaComponent } from './components/persona/persona.component';
 
 
+
 const routes: Routes = [
-  {path:'', redirectTo: '/persona', pathMatch: 'full'},
+  {path:'', redirectTo: 'persona', pathMatch: 'full'},
   {path: 'informazioni/:id', component: InformazioniComponent},
-  {path: 'persona', component: PersonaComponent}
+  {path: 'persona', component: PersonaComponent},
+  {path: 'prova', loadChildren: ()=> import('./prova/prova.module').then(m=>m.ProvaModule)}
 ];
 
 @NgModule({
